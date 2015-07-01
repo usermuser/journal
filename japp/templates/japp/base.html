@@ -1,0 +1,48 @@
+<!doctype html>
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'japp/style.css' %}" />
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>japp - {% block title_block %}{% endblock %}</title>
+    </head>
+    
+    <body>
+    <table border="0" class="main">
+
+    <tr>
+        <td class="logo"> LOGO
+        	<!-- <img src="{% static "japp/images/logo.gif" %}" width="207" height="27" border="0"> -->
+        </td>
+        <td class="topmenu">
+            <table class="main">
+                <tr> {% if user.is_authenticated %}
+                    <td class="menuitem"> <a class="menu" href="">Welcome, {{ user.username }}</a></td>
+               		<td class="menuitem"> <a class="menu" href="{% url 'japp:logout' %}">Logout</a></td>	
+ 					<td class="menuitem"> <a class="menu" href="{% url 'japp:add' %}">Add Changes</a>
+            		{% else %}
+            		<a href="{% url 'japp:register' %}">Register | <a href="{% url 'japp:login' %}">Login</a>
+        			{% endif %}</a>        
+        			</td>
+
+               </tr>
+            </table>
+        </td>
+    </tr>
+
+
+            
+    
+    <tr>
+	<td class="content_block" colspan="2">{% block content_block %} {% endblock %} </td>
+	</tr>
+    
+
+
+    </body>
+
+
+</html>

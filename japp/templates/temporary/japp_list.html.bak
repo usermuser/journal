@@ -1,0 +1,30 @@
+{% extends 'japp_base.html' %}
+{% block title_block %}Journal{% endblock %}
+{% block content_block %}
+<div>
+    <h1>Changes list</h1>
+    <table>
+        <thead>
+        <tr>
+            <td>Cpu</td>
+            <td>Date</td>
+            <td>User</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pda in object_list %}
+        <tr>
+            <td>{{ pda.cpu }}</td>
+            <td>{{ pda.date|date }}</td>
+            <td>  {{ pda.user }} </td>
+            <td><a href="{% url 'japp_detail' pda.pk %}">{{ pda.cpu.zone }}</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan=4>No tickets yet.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

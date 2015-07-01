@@ -1,0 +1,28 @@
+{% extends 'japp/base.html' %}
+{% block title_block %}Journal{% endblock %}
+{% block content_block %}
+<div>
+    <h1>Changes list</h1>
+
+        <thead>
+          Last 3 Changes
+        </thead>
+
+        <tbody>
+            {% if latest_pda_changes %}
+              <ul>
+              {% for pda in latest_pda_changes %}
+                <li><a href="{% url 'japp:detail' pda.pk %}">{{ pda.cpu.zone }}</a></li>
+              {% endfor %}
+
+                {% if all_pda_changes %}
+                <a href="{% url 'japp:full_list' pda.pk %}"></a>
+                {%endif%}
+
+              </ul>
+            {% else %}
+              <p>No changes yet.</p>
+            {% endif %}
+        </tbody>
+</div>
+{ % endblock %}

@@ -1,0 +1,9 @@
+{% extends 'japp/base.html' %}
+{% block title_block %}{{ object.cpu.zone }}{% endblock %}
+{% block content_block %}
+<div>
+    <h1>{{ object.cpu }} - {{ object.zone }}</h1>
+    <p>{{ object.user }} - {{ object.date|date }}</p>
+    <p>{{ object.text }}</p>
+</div>
+{% endblock %}

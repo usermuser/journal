@@ -1,0 +1,14 @@
+{% extends 'japp_base.html' %}
+{% block title_block %}Add changes{% endblock %}
+{% block content_block %}
+{% if user.is_authenticated %}
+    <a href="{% url 'japp_index' %}">Back to main page</a>
+    <form action="{% url 'japp_add' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit" />
+    </form>
+{% else %}
+    <p>You should be logged in to add changes!</p>
+{% endif %}
+{% endblock %}

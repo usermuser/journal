@@ -1,0 +1,24 @@
+{% extends 'japp/base.html' %}
+{% block title_block %}Journal{% endblock %}
+{% block content_block %}
+    <h1>Changes list</h1>
+    {% for pda in pda_changes %}
+      <p> <li>   {{ pda.cpu.name|upper }} - {{pda.user}} - {{pda.date}}
+      <a href="{% url 'japp:detail' pda.pk %}">Details</a></li></p>
+    {% endfor %}
+
+      <div class="pagination">
+        <span class="step-links">
+        {% if pda_changes.has_previous %}
+            <a href="?page={{ pda_changes.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ pda_changes.number }} of {{ pda_changes.paginator.num_pages }}.
+        </span>
+        {% if pda_changes.has_next %}
+            <a href="?page={{ pda_changes.next_page_number }}">next</a>
+        {% endif %}
+        </span>
+      </div>
+{% endblock %}
