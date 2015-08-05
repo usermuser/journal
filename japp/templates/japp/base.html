@@ -20,29 +20,33 @@
         <td class="topmenu">
             <table class="main">
                 <tr> {% if user.is_authenticated %}
-                    <td class="menuitem"> <a class="menu" href="">Welcome, {{ user.username }}</a></td>
-               		<td class="menuitem"> <a class="menu" href="{% url 'japp:logout' %}">Logout</a></td>	
- 					<td class="menuitem"> <a class="menu" href="{% url 'japp:add' %}">Add Changes</a>
-            		{% else %}
-            		<a href="{% url 'japp:register' %}">Register | <a href="{% url 'japp:login' %}">Login</a>
-        			{% endif %}</a>        
-        			</td>
+                      <td class="menuitem"> <a class="menu" href="">Welcome, {{ user.username }}</a></td>
+                      <td class="menuitem"> <a class="menu" href="{% url 'japp:logout' %}">Logout</a></td>	
+                      <td class="menuitem"> <a class="menu" href="{% url 'japp:add' %}">Add Changes</a>
+                     {% else %}
+                      <a href="{% url 'japp:register' %}">Register | <a href="{% url 'japp:login' %}">Login</a>
+                     {% endif %}</a></td>
 
                </tr>
             </table>
         </td>
     </tr>
-
-
-            
     
-    <tr>
-	<td class="content_block" colspan="2">{% block content_block %} {% endblock %} </td>
-	</tr>
-    
-
-
+     <tr align="center" cellspacing="10" width="800">
+      <td class="content_block" colspan="2">
+      <h1 align="center" text-color="grey">Changes</h1>
+   
+       <table class="content_table" align="center" cellspacing="10" width="800">
+        <thead>
+            <tr>
+                <td class="content-table-head">Cpu</td>
+                <td class="content-table-head">Zone</td>
+                <td class="content-table-head">Who changed</td>
+                <td class="content-table-head">Date</td>
+     <!--           <td class="content-table-head">Details</td>-->
+            </tr>
+        </thead>
+      {% block content_block %} {% endblock %} </td>
+     </tr>
     </body>
-
-
 </html>

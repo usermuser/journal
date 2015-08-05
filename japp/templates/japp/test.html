@@ -2,17 +2,6 @@
 {% block title_block %}Journal{% endblock %}
 {% block content_block %}
 
-<h1 align="center" text-color="grey">Changes list</h1>
-    <table class="content_table" align="center" cellspacing="10" width="800">
-        <thead>
-            <tr>
-                <td class="content-table-head">Cpu</td>
-                <td class="content-table-head">Zone</td>
-                <td class="content-table-head">Who changed</td>
-                <td class="content-table-head">Date</td>
-                <td class="content-table-head">Details</td>
-            </tr>
-        </thead>
         <tbody>
             {% for pda in pda_changes %}
             <tr>
