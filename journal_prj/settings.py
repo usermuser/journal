@@ -83,7 +83,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates/'),)
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+    '/home/ramatahatta/workspace/journal/japp/static/',
+)
 
 from django.core.urlresolvers import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('japp:index')
